@@ -14,12 +14,22 @@ module.exports = function () {
         return entry;
       });
 
+      // hide warnings
       if (opts.quiet) {
         results = xo.getErrorResults(results);
       }
 
       if (report.errorCount > 0 || report.warningCount > 0) {
-        this.error('fly-xo: Code Style Errors \n', xo.getFormatter()(results));
+        this.log(xo.getFormatter()(results));
+      }
+
+      if (report.errorCount > 0) {
+        const end = (results.length > 1) ? 'files!' : 'file!';
+
+        this.emit('plugin_error', {
+          plugin: 'fly-xo',
+          error: 'XO found '+ report.errorCount +' errors in '+ results.length +' '+end
+        });
       }
     });
   };
