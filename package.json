@@ -23,7 +23,7 @@
     "tape": "node --harmony --harmony_arrow_functions ./node_modules/tape/bin/tape test/*.js"
   },
   "author": {
-    "name": "luke",
+    "name": "Luke Edwards",
     "email": "luke.edwards05@gmail.com",
     "url": "https://lukeed.com"
   },
