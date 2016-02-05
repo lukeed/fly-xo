@@ -4,7 +4,7 @@
   </a>
 </div>
 
-> [Xo](https://github.com/lukeed/fly-xo) plugin for _[Fly][fly]_.
+> [XO][xo] plugin for [Fly][fly].
 
 [![][fly-badge]][fly]
 [![npm package][npm-ver-link]][releases]
@@ -13,19 +13,27 @@
 [![][mit-badge]][mit]
 
 ## Usage
-> Check out the [documentation](PLUGIN_DOCUMENTATION) to see the available options.
+> Check out the [XO documentation][xo] to see the available options.
 
 ### Install
 
 ```a
-npm install -D fly-xo
+npm install --save-dev fly-xo
 ```
 
 ### Example
 
 ```js
 export default function* () {
-  yield ...
+  yield this.source('app/**/*.js').xo({
+    semicolon": false,
+    "space": 2,
+    "overrides": [
+      "files": "app/tests/*.js",
+      "esnext": true,
+      "space": false
+    ]
+  });
 }
 ```
 
@@ -33,8 +41,7 @@ export default function* () {
 
 MIT © [Luke Edwards][author]
 
-
-[mit]:          http://opensource.org/licenses/MIT
+[xo]:           https://github.com/sindresorhus/xo
 [author]:       https://lukeed.com
 [contributors]: https://github.com/lukeed/fly-xo/graphs/contributors
 [releases]:     https://github.com/lukeed/fly-xo/releases
