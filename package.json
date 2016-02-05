@@ -34,6 +34,8 @@
     "url": "https://lukeed.com"
   },
   "dependencies": {
+    "object-assign": "^4.0.0",
+    "xo": "^0.12.0"
   },
   "devDependencies": {
     "eslint": "^1.10.0",
