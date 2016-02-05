@@ -8,10 +8,16 @@
   "files": [
     "index.js"
   ],
-  "keywords":[
+  "keywords": [
     "fly",
     "fly-plugin",
-    "xo"
+    "xo",
+    "xoxo",
+    "linter",
+    "lint",
+    "eslint",
+    "jslint",
+    "jshint"
   ],
   "scripts": {
     "lint": "eslint *.js",
