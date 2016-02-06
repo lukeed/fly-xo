@@ -9,7 +9,7 @@ module.exports = function () {
 
     return xo.lintFiles(this._.globs, opts).then(report => {
       // truncate project root from path
-      let results = report.results.map(entry => {
+      var results = report.results.map(entry => {
         entry.filePath = path.relative(proj, entry.filePath);
         return entry;
       });
