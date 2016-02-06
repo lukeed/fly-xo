@@ -19,18 +19,13 @@ npm install --save-dev fly-xo
 
 ## Usage
 
-The `xo` task must be last function within your task.
+The `xo` task must be last function within your task. Any options you pass in will override XO's default settings.
 
 ```js
 export default function* () {
   yield this.source('app/**/*.js').xo({
-    semicolon: false,
-    space: 2,
-    overrides: [
-      files: 'app/tests/*.js',
-      esnext: true,
-      space: false
-    ]
+    quiet: true,
+    semicolon: false
   });
 }
 ```
