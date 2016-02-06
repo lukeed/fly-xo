@@ -10,7 +10,6 @@
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
-[![][mit-badge]][mit]
 
 ## Install
 
@@ -25,12 +24,12 @@ The `xo` task must be last function within your task.
 ```js
 export default function* () {
   yield this.source('app/**/*.js').xo({
-    semicolon": false,
-    "space": 2,
-    "overrides": [
-      "files": "app/tests/*.js",
-      "esnext": true,
-      "space": false
+    semicolon: false,
+    space: 2,
+    overrides: [
+      files: 'app/tests/*.js',
+      esnext: true,
+      space: false
     ]
   });
 }
