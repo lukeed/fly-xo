@@ -4,24 +4,23 @@
   </a>
 </div>
 
-> [XO][xo] plugin for [Fly][fly].
+> [XO](https://github.com/sindresorhus/xo) plugin for [Fly](https://www.github.com/flyjs/fly).
 
-[![][fly-badge]][fly]
+[![][fly-badge]](https://www.github.com/flyjs/fly)
 [![npm package][npm-ver-link]][releases]
 [![][dl-badge]][npm-pkg-link]
 [![][travis-badge]][travis-link]
 [![][mit-badge]][mit]
 
-## Usage
-> Check out the [XO documentation][xo] to see the available options.
-
-### Install
+## Install
 
 ```a
 npm install --save-dev fly-xo
 ```
 
-### Example
+## Usage
+
+The `xo` task must be last function within your task.
 
 ```js
 export default function* () {
@@ -37,15 +36,28 @@ export default function* () {
 }
 ```
 
+## API
+
+### xo([options])
+
+#### options
+
+Read the [XO Config Options](https://github.com/sindresorhus/xo#config) for details. These can also be set within `package.json` file.
+
+In the `flyfile.js`, you can specify the following option:
+
+##### quiet
+
+Type: `boolean`  
+Default: `false`
+
+Report errors only.
+
 ## License
 
-MIT © [Luke Edwards][author]
+MIT © [Luke Edwards](https://lukeed.com)
 
-[xo]:           https://github.com/sindresorhus/xo
-[author]:       https://lukeed.com
-[contributors]: https://github.com/lukeed/fly-xo/graphs/contributors
 [releases]:     https://github.com/lukeed/fly-xo/releases
-[fly]:          https://www.github.com/flyjs/fly
 [fly-badge]:    https://img.shields.io/badge/fly-JS-05B3E1.svg?style=flat-square
 [mit-badge]:    https://img.shields.io/badge/license-MIT-444444.svg?style=flat-square
 [npm-pkg-link]: https://www.npmjs.org/package/fly-xo
