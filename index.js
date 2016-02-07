@@ -25,10 +25,11 @@ module.exports = function () {
 
       if (report.errorCount > 0) {
         const end = (results.length > 1) ? 'files!' : 'file!';
+        const num = results.filter(el => el.errorCount > 0).length;
 
         this.emit('plugin_error', {
           plugin: 'fly-xo',
-          error: 'XO found '+ report.errorCount +' errors in '+ results.length +' '+end
+          error: 'XO found '+ report.errorCount +' errors in '+ num +' '+end
         });
       }
     });
