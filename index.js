@@ -24,8 +24,8 @@ module.exports = function () {
       }
 
       if (report.errorCount > 0) {
-        const end = (results.length > 1) ? 'files!' : 'file!';
         const num = results.filter(el => el.errorCount > 0).length;
+        const end = (num > 1) ? 'files!' : 'file!';
 
         this.emit('plugin_error', {
           plugin: 'fly-xo',
