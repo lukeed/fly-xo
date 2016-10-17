@@ -20,7 +20,7 @@
     "jshint"
   ],
   "scripts": {
-    "test": "npm run tape | tap-spec"
+    "test": "xo && tape test/*.js | tap-spec"
   },
   "author": {
     "name": "Luke Edwards",
