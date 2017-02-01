@@ -1,7 +1,7 @@
 'use strict';
 
-const join = require('path').join;
-const test = require('tape').test;
+const {join} = require('path');
+const test = require('tape');
 const Fly = require('fly');
 
 const dir = join(__dirname, 'fixtures');
@@ -11,21 +11,22 @@ test('fly-xo', t => {
 	t.plan(3);
 
 	const fly = new Fly({
-		plugins: [{
-			func: require('../')
-		}],
+		plugins: [
+			require('../'),
+			require('fly-clear')
+		],
 		tasks: {
-			a: function * () {
-				yield this.source(`${dir}/*`).xo().target(tmp);
+			* foo(f) {
+				yield f.source(`${dir}/*`).xo().target(tmp);
 				t.pass('allow `xo` to be chainable');
-				const arr = yield this.$.expand(`${tmp}/*`);
+				const arr = yield f.$.expand(`${tmp}/*`);
 				t.equal(arr.length, 2, 'pass `xo` files on to `target()`');
-				yield this.clear(tmp);
+				yield f.clear(tmp);
 			}
 		}
 	});
 
-	t.ok('xo' in fly, 'attach `xo` plugin to Fly');
+	t.ok('xo' in fly.plugins, 'attach `xo` plugin to Fly');
 
-	fly.start('a');
+	fly.start('foo');
 });
