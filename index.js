@@ -1,17 +1,20 @@
 'use strict';
 
-const rel = require('path').relative;
+const {relative} = require('path');
 const xo = require('xo');
 
-module.exports = function () {
-	this.plugin('xo', {every: 0, files: 0}, function * (globs, opts) {
+module.exports = {
+	name: 'xo',
+	every: false,
+	files: false,
+	* func(globs, opts) {
 		opts = Object.assign({quiet: false}, opts);
 
 		const report = yield xo.lintFiles(globs, opts);
 
 		// truncate project root from paths
 		let results = report.results.map(obj => {
-			obj.filePath = rel(this.root, obj.filePath);
+			obj.filePath = relative(this.root, obj.filePath);
 			return obj;
 		});
 
@@ -33,5 +36,5 @@ module.exports = function () {
 				error: `XO found ${report.errorCount} errors in ${num} ${end}!`
 			});
 		}
-	});
+	}
 };
