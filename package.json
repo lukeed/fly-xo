@@ -31,7 +31,8 @@
     "xo": "*"
   },
   "devDependencies": {
-    "fly": "beta",
+    "fly": "^2.0.0",
+    "fly-clear": "^0.2.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2"
   },
